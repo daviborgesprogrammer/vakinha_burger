@@ -6,6 +6,7 @@ import '../../core/ui/base_state/base_state.dart';
 import '../../core/ui/widgets/delivery_appbar.dart';
 import 'home_state.dart';
 import 'widgets/delivery_product_tile.dart';
+import 'widgets/shopping_bag_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -42,18 +43,22 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
         builder: (context, state) => Column(
           children: [
             Expanded(
-                child: ListView.builder(
-              itemCount: state.products.length,
-              itemBuilder: (context, index) {
-                final product = state.products[index];
-                final orders = state.shoppingBag
-                    .where((order) => order.product == product);
-                return DeliveryProductTile(
-                  product: product,
-                  orderProduct: orders.isNotEmpty ? orders.first : null,
-                );
-              },
-            ))
+              child: ListView.builder(
+                itemCount: state.products.length,
+                itemBuilder: (context, index) {
+                  final product = state.products[index];
+                  final orders = state.shoppingBag
+                      .where((order) => order.product == product);
+                  return DeliveryProductTile(
+                    product: product,
+                    orderProduct: orders.isNotEmpty ? orders.first : null,
+                  );
+                },
+              ),
+            ),
+            Visibility(
+                visible: state.shoppingBag.isNotEmpty,
+                child: ShoppingBagWidget(bag: state.shoppingBag)),
           ],
         ),
       ),
