@@ -3,6 +3,8 @@ import 'package:dw9delivery/app/core/ui/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_awesome_select/flutter_awesome_select.dart';
 
+import '../../../models/payment_type_model.dart';
+
 class PaymentTypesField extends StatelessWidget {
   final List<PaymentTypeModel> paymentTypes;
   final ValueChanged<int> valueChanged;

@@ -2,8 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 
 import '../config/env/env.dart';
+import 'interceptors/auth_interceptor.dart';
 
 class CustomDio extends DioForNative {
+  late AuthInterceptor _authInterceptor;
   CustomDio()
       : super(
           BaseOptions(
@@ -19,13 +21,18 @@ class CustomDio extends DioForNative {
         requestHeader: true,
       ),
     );
+    _authInterceptor = AuthInterceptor();
   }
 
   CustomDio auth() {
+    if (!interceptors.contains(_authInterceptor)) {
+      interceptors.add(_authInterceptor);
+    }
     return this;
   }
 
   CustomDio unauth() {
+    interceptors.remove(_authInterceptor);
     return this;
   }
 }

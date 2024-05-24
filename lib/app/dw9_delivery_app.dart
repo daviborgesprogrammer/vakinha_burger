@@ -9,6 +9,7 @@ import 'core/ui/theme/theme_config.dart';
 import 'pages/auth/login/login_router.dart';
 import 'pages/auth/register/register_router.dart';
 import 'pages/home/home_router.dart';
+import 'pages/order/order_router.dart';
 import 'pages/splash/splash_page.dart';
 
 class Dw9DeliveryApp extends StatelessWidget {
@@ -26,8 +27,7 @@ class Dw9DeliveryApp extends StatelessWidget {
           '/productDetail': (context) => ProductDetailRouter.page,
           '/auth/login': (context) => LoginRouter.page,
           '/auth/register': (context) => RegisterRouter.page,
-          // '/order': (context) => OrderRouter.page,
-          '/order': (context) => OrderPage(),
+          '/order': (context) => OrderRouter.page,
         },
       ),
     );
