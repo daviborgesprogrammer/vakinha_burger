@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:dw9delivery/app/core/config/env/env.dart';
 import 'package:dw9delivery/app/core/extensions/formatter_extensions.dart';
 import 'package:dw9delivery/app/core/ui/helpers/size_extensions.dart';
 import 'package:dw9delivery/app/core/ui/styles/text_styles.dart';
@@ -81,7 +82,8 @@ class _ProductDetailPageState
             height: context.percentHeight(.4),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(widget.product.image),
+                image: NetworkImage(
+                    '${Env.i['backend_base_url']}/${widget.product.image}'),
                 fit: BoxFit.cover,
               ),
             ),

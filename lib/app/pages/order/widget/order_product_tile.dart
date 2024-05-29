@@ -7,6 +7,8 @@ import 'package:dw9delivery/app/pages/order/order_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/config/env/env.dart';
+
 class OrderProductTile extends StatelessWidget {
   final int index;
   final OrderProductDto orderProduct;
@@ -25,7 +27,7 @@ class OrderProductTile extends StatelessWidget {
       child: Row(
         children: [
           Image.network(
-            product.image,
+            '${Env.i['backend_base_url']}/${product.image}',
             width: 100,
             height: 100,
             fit: BoxFit.cover,

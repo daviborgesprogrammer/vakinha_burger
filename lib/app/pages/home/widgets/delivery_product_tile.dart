@@ -5,6 +5,7 @@ import 'package:dw9delivery/app/pages/home/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/config/env/env.dart';
 import '../../../core/ui/styles/colors_app.dart';
 import '../../../models/product_model.dart';
 
@@ -68,7 +69,7 @@ class DeliveryProductTile extends StatelessWidget {
             const SizedBox(width: 4),
             FadeInImage.assetNetwork(
               placeholder: 'assets/images/loading.gif',
-              image: product.image,
+              image: '${Env.i['backend_base_url']}/${product.image}',
               width: 100,
               height: 100,
               fit: BoxFit.contain,

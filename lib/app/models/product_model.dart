@@ -29,7 +29,7 @@ class ProductModel {
       id: (map['id'] ?? 0) as int,
       name: (map['name'] ?? '') as String,
       description: (map['description'] ?? '') as String,
-      price: (map['price'] ?? 0.0) as double,
+      price: (map['price'] ?? 0).toDouble(),
       image: (map['image'] ?? '') as String,
     );
   }
